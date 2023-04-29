@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { startGame } from "../store/slices/gameInit";
+import Button from "../components/Button";
 
 function StartGamePage() {
   const [username, setUsername] = useState("");
@@ -10,13 +11,14 @@ function StartGamePage() {
     dispatch(startGame({ username }));
   };
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center mt-80">
       <input
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="Your Name.."
+        className="py-2 px-4 outline-none rounded shadow w-64 mb-6"
       />
-      <button onClick={startGameHandler}>Start Game</button>
+      <Button onClick={startGameHandler}>Start Game</Button>
     </div>
   );
 }
